@@ -9,7 +9,7 @@ import br.com.borgescal.designpatterns.decorator.implementations.condiments.Whip
 import br.com.borgescal.designpatterns.decorator.interfaces.Beverage;
 
 /**
- * Observer Pattern
+ * Decorator Pattern
  * ================
  * 
  * **The Decorator Pattern** attaches additional responsibilities to an
