@@ -1,6 +1,12 @@
 package br.com.borgescal.designpatterns.command.implementations.receivers;
 
 public class GarageDoor {
+	String place;
+	
+	public GarageDoor(String place) {
+		this.place = place;
+	}
+	
 	public void up() {
 		System.out.println("Garage door up!");
 	}
