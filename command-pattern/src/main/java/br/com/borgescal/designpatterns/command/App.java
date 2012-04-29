@@ -1,7 +1,8 @@
 package br.com.borgescal.designpatterns.command;
 
+import br.com.borgescal.designpatterns.command.implementations.commands.CeilingFanHighCommand;
+import br.com.borgescal.designpatterns.command.implementations.commands.CeilingFanMediumCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.CeilingFanOffCommand;
-import br.com.borgescal.designpatterns.command.implementations.commands.CeilingFanOnCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.GarageDoorDownCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.GarageDoorUpCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.LightOffCommand;
@@ -34,14 +35,15 @@ public class App
         Light kitchenLight = new Light("Kitchen");
         CeilingFan ceilingFan = new CeilingFan("Living Room");
         GarageDoor garageDoor = new GarageDoor("");
-        Stereo stereo = new Stereo();
+        Stereo stereo = new Stereo("");
         
         LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
         LightOffCommand livingRoomLightOff = new LightOffCommand(livingRoomLight);
         LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
         LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
         
-        CeilingFanOnCommand ceilingFanOn  = new CeilingFanOnCommand(ceilingFan);
+        CeilingFanHighCommand ceilingFanHigh  = new CeilingFanHighCommand(ceilingFan);
+        CeilingFanMediumCommand ceilingFanMedium  = new CeilingFanMediumCommand(ceilingFan);
         CeilingFanOffCommand ceilingFanOff  = new CeilingFanOffCommand(ceilingFan);
         
         GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
@@ -52,22 +54,42 @@ public class App
         
         remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
         remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
-        remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
-        remoteControl.setCommand(3, stereoOnWithCD, stereoOff);
-        remoteControl.setCommand(4, garageDoorUp, garageDoorDown);
+        remoteControl.setCommand(2, ceilingFanHigh, ceilingFanOff);
+        remoteControl.setCommand(3, ceilingFanMedium, ceilingFanOff);
+        remoteControl.setCommand(4, stereoOnWithCD, stereoOff);
+        remoteControl.setCommand(5, garageDoorUp, garageDoorDown);
         
         System.out.println(remoteControl);
         
         remoteControl.onButtonWasPushed(0);
         remoteControl.offButtonWasPushed(0);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+        
         remoteControl.onButtonWasPushed(1);
         remoteControl.offButtonWasPushed(1);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+        
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+        
         remoteControl.onButtonWasPushed(3);
         remoteControl.offButtonWasPushed(3);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+        
         remoteControl.onButtonWasPushed(4);
         remoteControl.offButtonWasPushed(4);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+        
+        remoteControl.onButtonWasPushed(5);
+        remoteControl.offButtonWasPushed(5);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
         
     }
 }

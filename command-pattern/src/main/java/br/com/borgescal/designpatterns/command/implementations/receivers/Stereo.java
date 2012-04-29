@@ -1,6 +1,12 @@
 package br.com.borgescal.designpatterns.command.implementations.receivers;
 
 public class Stereo {
+	String place;
+	
+	public Stereo(String place) {
+		this.place = place;
+	}
+	
 	public void on() {
 		System.out.println("Stereo is on!");
 	}
