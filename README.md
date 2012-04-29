@@ -31,6 +31,8 @@ OO Patterns
 
 * **Singleton** - ensure a class only has one instance and provide a global point of access to it.
 
+* **Command** - encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+
 
 Bullet Points
 =============
@@ -92,3 +94,14 @@ Bullet Points
 * Beware of the double-checked locking implementation; it is not thread-safe in versions before Java 2, version 5.
 * Be careful if you are using multiple class loaders; this could defeat the Singleton implmentation and result in multiple instances.
 * If you are using a JVM earlier than 1.2, you'll need to create a registry of Singletons to defeat the garbage collector.
+
+---
+
+* The Command Pattern decouples an object, making a request from the one that knows how to perform it.
+* A Command object is at the center of this decoupling and encapsulates a receiver with an action (or set of actions).
+* An invoker makes a request of a Command object by calling its execute() method, which invokes those actions on the receiver.
+* Inoverks can be parameterized with Commands, even dynamically at runtime.
+* Commands may support undo by implementing an undo method that restores the object to its previous state before the execute() method was last called.
+* Macro Commands are a simple extension of Command that allow multiple commands to be invoked. Likewise, Macro Commands can easily support undo().
+* In practice, it is not uncommon for "smart" Command objects to implement the request themselves rather than delegating to a receiver.
+* Commands may also be used to implement loggin and transactional systems.
