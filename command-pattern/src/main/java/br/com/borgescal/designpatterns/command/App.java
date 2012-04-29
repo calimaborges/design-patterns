@@ -7,6 +7,7 @@ import br.com.borgescal.designpatterns.command.implementations.commands.GarageDo
 import br.com.borgescal.designpatterns.command.implementations.commands.GarageDoorUpCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.LightOffCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.LightOnCommand;
+import br.com.borgescal.designpatterns.command.implementations.commands.MacroCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.StereoOffCommand;
 import br.com.borgescal.designpatterns.command.implementations.commands.StereoOnWithCDCommand;
 import br.com.borgescal.designpatterns.command.implementations.invoker.RemoteControl;
@@ -14,6 +15,7 @@ import br.com.borgescal.designpatterns.command.implementations.receivers.Ceiling
 import br.com.borgescal.designpatterns.command.implementations.receivers.GarageDoor;
 import br.com.borgescal.designpatterns.command.implementations.receivers.Light;
 import br.com.borgescal.designpatterns.command.implementations.receivers.Stereo;
+import br.com.borgescal.designpatterns.command.intefaces.Command;
 
 
 /**
@@ -52,12 +54,18 @@ public class App
         StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
         StereoOffCommand stereoOff = new StereoOffCommand(stereo);
         
+        Command[] partyOn = { livingRoomLightOn, stereoOnWithCD, ceilingFanHigh };
+        Command[] partyOff = { livingRoomLightOff, stereoOff, ceilingFanOff };
+        MacroCommand partyOnMacro = new MacroCommand(partyOn);
+        MacroCommand partyOffMacro = new MacroCommand(partyOff);
+        
         remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
         remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
         remoteControl.setCommand(2, ceilingFanHigh, ceilingFanOff);
         remoteControl.setCommand(3, ceilingFanMedium, ceilingFanOff);
         remoteControl.setCommand(4, stereoOnWithCD, stereoOff);
         remoteControl.setCommand(5, garageDoorUp, garageDoorDown);
+        remoteControl.setCommand(6, partyOnMacro, partyOffMacro);
         
         System.out.println(remoteControl);
         
@@ -91,5 +99,9 @@ public class App
         System.out.println(remoteControl);
         remoteControl.undoButtonWasPushed();
         
+        remoteControl.onButtonWasPushed(6);
+        remoteControl.offButtonWasPushed(6);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
     }
 }
