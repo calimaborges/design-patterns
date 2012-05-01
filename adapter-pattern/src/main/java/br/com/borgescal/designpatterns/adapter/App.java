@@ -8,7 +8,12 @@ import br.com.borgescal.designpatterns.adapter.interfaces.Duck;
 import br.com.borgescal.designpatterns.adapter.interfaces.Turkey;
 
 /**
- * Hello world!
+ * Adapter Pattern
+ * ===============
+ * 
+ * **The Adapter Pattern** converts the interface of a class into another interface
+ * the clients expect. Adapter lets classes work together that couldn't otherwise 
+ * because of incompatible interfaces. 
  *
  */
 public class App 

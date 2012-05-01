@@ -14,7 +14,8 @@ OO Principles
 * Program to interfaces, not implementations
 * Strive for loosely coupled designs between objects that interact
 * Classes should be open for extension but closed for modification
-* Depend on abstractions. Do not depend on concrete classes.
+* Depend on abstractions. Do not depend on concrete classes
+* Only talk to your friends
 
 OO Patterns
 ===========
@@ -32,6 +33,10 @@ OO Patterns
 * **Singleton** - ensure a class only has one instance and provide a global point of access to it.
 
 * **Command** - encapsulates a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
+
+* **Adapter** - converts the interface of a class into another interface clients expect. Lets classes work together that couldn't otherwise because of incompatible interfaces.
+
+* **Facade** - Provides a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
 
 
 Bullet Points
@@ -105,3 +110,15 @@ Bullet Points
 * Macro Commands are a simple extension of Command that allow multiple commands to be invoked. Likewise, Macro Commands can easily support undo().
 * In practice, it is not uncommon for "smart" Command objects to implement the request themselves rather than delegating to a receiver.
 * Commands may also be used to implement loggin and transactional systems.
+
+---
+
+* When ou need to use and existing class and its interface is not the one you need, use an adapter.
+* When you need to simplify and unify a large interface or complex set of interfaces, use a facade.
+* An adapter changes an interface into one a client expects.
+* A facade decouples a client from a complex subsystem.
+* Implementing an adapter may require little work or a great deal of work depending on the size and complexity of the target interface.
+* Implementing a facade requires that we compose the facade with its subsystem and use delegation to perform the work of the facade.
+* There are two forms of the Adapter Pattern: object and class adapters. Class adapters require multiple inheritance.
+* You can implement more than one facade for a subsystem.
+* An adapter wraps an object to change its interface, a decorator wraps an object to add new behaviors and resposabilities, and a facade "wraps" a set of objects to simplify.
