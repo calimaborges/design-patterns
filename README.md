@@ -16,6 +16,7 @@ OO Principles
 * Classes should be open for extension but closed for modification
 * Depend on abstractions. Do not depend on concrete classes
 * Only talk to your friends
+* Don't call us, we'll call you
 
 OO Patterns
 ===========
@@ -36,7 +37,9 @@ OO Patterns
 
 * **Adapter** - converts the interface of a class into another interface clients expect. Lets classes work together that couldn't otherwise because of incompatible interfaces.
 
-* **Facade** - Provides a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+* **Facade** - provides a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+
+* **Template Method** - define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
 
 
 Bullet Points
@@ -122,3 +125,16 @@ Bullet Points
 * There are two forms of the Adapter Pattern: object and class adapters. Class adapters require multiple inheritance.
 * You can implement more than one facade for a subsystem.
 * An adapter wraps an object to change its interface, a decorator wraps an object to add new behaviors and resposabilities, and a facade "wraps" a set of objects to simplify.
+
+---
+
+* A "template method" defines the steps of an algorithm, deferring to subclasses for the implementation of those steps.
+* The Template Method Pattern gives us an important technique for code reuse.
+* The template method's abstract class may define concrete methods, abstract methods and hooks.
+* Abstract methods are implemented by subclasses.
+* Hooks are methods that do nothing or default behavior in the abstract class, but may be overriden in the subclass.
+* To prevent subclasses from changing the algorithm in the template method, declare the template method as final.
+* The Hollywood Principle guides us to put decision-making in high-level modules that can decide how and when to call low level modules.
+* You'll see lots of uses of the Template Method Pattern in real world code, but don't expect it all (like any pattern) to be designed "by the book".
+* The Strategy and Template Method Patterns both encapsulate algorithms, one by inheritance and one by composition.
+* The Factory Method is a specialization of Template Method.

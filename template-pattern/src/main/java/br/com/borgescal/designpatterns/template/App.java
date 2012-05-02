@@ -1,5 +1,8 @@
 package br.com.borgescal.designpatterns.template;
 
+import br.com.borgescal.designpatterns.template.implementations.Coffee;
+import br.com.borgescal.designpatterns.template.implementations.Tea;
+
 /**
  * Template Method Pattern
  * =======================
@@ -13,6 +16,11 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	Tea tea = new Tea();
+    	tea.prepareRecipe();
+    	
+    	Coffee coffee = new Coffee();
+    	coffee.prepareRecipe();
     }
 }
+
