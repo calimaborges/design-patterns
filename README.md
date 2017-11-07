@@ -138,3 +138,6 @@ Bullet Points
 * You'll see lots of uses of the Template Method Pattern in real world code, but don't expect it all (like any pattern) to be designed "by the book".
 * The Strategy and Template Method Patterns both encapsulate algorithms, one by inheritance and one by composition.
 * The Factory Method is a specialization of Template Method.
+
+---
+Reference: [Head First Design Patterns book](http://shop.oreilly.com/product/9780596007126.do)
